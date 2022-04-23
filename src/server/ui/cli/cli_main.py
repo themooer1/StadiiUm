@@ -22,6 +22,9 @@ class CliMain:
             self.run_server()
         elif Args.args.get_key:
             self.get_key()
+        elif Args.args.connect_to_wiiu:
+            self.connect_to_wiiu()
+            input("Press any key to disconnect")
         else:
             self.stop()
 
