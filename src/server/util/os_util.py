@@ -6,7 +6,7 @@ class OsUtil:
     platform = os.name
     name = _platform.system()
     release = _platform.release()
-    distro = _platform.linux_distribution()
+    # distro = _platform.linux_distribution()
 
     def __init__(self):
         pass
@@ -22,8 +22,8 @@ class OsUtil:
         # Log info
         logger.debug("OS platform: %s", cls.platform)
         logger.debug("OS name: %s", cls.name)
-        if cls.is_linux():
-            logger.debug("OS distro: %s", cls.distro)
+        # if cls.is_linux():
+            # logger.debug("OS distro: %s", cls.distro)
         logger.debug("OS release: %s", cls.release)
 
     @classmethod

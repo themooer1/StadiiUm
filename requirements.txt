@@ -1,0 +1,2 @@
+netifaces>=0.10.5
+pexpect>=4.2.1

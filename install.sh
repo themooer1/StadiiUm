@@ -37,7 +37,8 @@ check_os() {
         # Backend dependencies
         dependencies=("python3" "python3-pip"
         "net-tools" "wireless-tools" "sysvinit-utils" "psmisc" "rfkill"
-        "isc-dhcp-client" "ifmetric" "python3-tk" "gksu")
+        "isc-dhcp-client" "ifmetric" "python3-tk")
+        # dependencies+=("gksu")
         # Wpa supplicant compile dependencies
         dependencies+=("git" "libssl-dev" "libnl-genl-3-dev" "gcc" "make" "pkg-config")
         # DRC Sim Server C++
@@ -76,6 +77,11 @@ install_dependencies() {
             fi
         fi
     done
+}
+
+only_install_dependencies() {
+    install_dependencies
+    exit 0
 }
 
 # Update git directory while stashing changed return 1
@@ -282,6 +288,8 @@ check_args() {
     # Uninstall
     elif [[ "${1}" == "uninstall" ]]; then
         uninstall
+    elif [[ "${1}" == "dependencies" ]]; then
+        only_install_dependencies
     # Install branch
     elif [[ "${branch_drc_sim}" != "develop" ]] && [[ "${branch_drc_sim}" != "master" ]] && 
          [[ "${branch_drc_sim}" != "local" ]]; then

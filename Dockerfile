@@ -9,6 +9,12 @@ ADD install.sh /root/
 
 RUN apt-get update \
     && cd /root/ \
+    && ./install.sh dependencies
+
+ADD requirements.txt /root/
+RUN pip3 install -r /root/requirements.txt
+
+RUN cd /root/ \
     && ./install.sh local
 
 ENV TERM xterm
